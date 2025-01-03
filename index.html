@@ -94,25 +94,26 @@
   <div class="block">&copy; 2024 Presented by Bimatech.</div>
 
   <script>
-    function generateInvitationLink() {
-      const guestName = document.getElementById('guestName').value;
-      const baseUrl = 'https://bimawest.github.io/#'; 
+   function generateInvitationLink() {
+  const guestName = document.getElementById('guestName').value;
+  const baseUrl = 'https://bimawest.github.io/#'; 
 
-      if (guestName.trim() === "") {
-        alert("Silakan masukkan nama tamu");
-        return;
-      }
+  if (guestName.trim() === "") {
+    alert("Silakan masukkan nama tamu");
+    return;
+  }
 
-      const encodedName = encodeURIComponent(guestName);
-      const fullUrl = `${baseUrl}?to=${encodedName}`;
+  const encodedName = encodeURIComponent(guestName);
+  const fullUrl = `${baseUrl}?to=${encodedName}`;
 
-      const namaElement = document.getElementById('nama');
-      const linkElement = document.getElementById('link');
+  const namaElement = document.getElementById('nama');
+  const linkElement = document.getElementById('link');
 
-      namaElement.textContent = guestName;
-      linkElement.textContent = fullUrl;
-      linkElement.setAttribute('href', fullUrl); // Make the link clickable
-    }
+  namaElement.textContent = guestName;
+  linkElement.textContent = fullUrl;
+  linkElement.setAttribute('href', fullUrl); // Make the link clickable
+  linkElement.setAttribute('target', '_blank'); // Open link in a new tab
+} 
     
     function copyText() {
       const pesanElement = document.querySelector('.pesan');
