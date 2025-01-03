@@ -115,7 +115,7 @@
   const namaElement = document.getElementById('nama');
   const linkElement = document.getElementById('link');
 
-  namaElement.textContent = guestName;
+  namaElement.innerHTML = '<strong>' + guestName + '</strong>';
   linkElement.textContent = fullUrl;
   linkElement.setAttribute('href', fullUrl); // Make the link clickable
   linkElement.setAttribute('target', '_blank'); // Open link in a new tab
