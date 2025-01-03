@@ -96,7 +96,7 @@
   <script>
     function generateInvitationLink() {
       const guestName = document.getElementById('guestName').value;
-      const baseUrl = 'https://bimawest.github.io/'; 
+      const baseUrl = 'https://bimawest.github.io/#'; 
 
       if (guestName.trim() === "") {
         alert("Silakan masukkan nama tamu");
@@ -115,7 +115,11 @@
     }
     
     function copyText() {
-      const textToCopy = document.querySelector('.pesan').textContent;
+      const pesanElement = document.querySelector('.pesan');
+      const textToCopy = Array.from(pesanElement.childNodes)
+      .filter(node => node.nodeType === Node.TEXT_NODE || (node.nodeType === Node.ELEMENT_NODE && node.tagName !== 'BUTTON'))
+      .map(node => node.textContent)
+      .join('');
       navigator.clipboard.writeText(textToCopy)
         .then(() => {
           alert('Teks berhasil disalin!');
